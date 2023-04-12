@@ -25,6 +25,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ItemView
     public ContentAdapter(Context context, ObservableScrollView ObservableScrollView) {
         this.context = context;
         //设置头部recycle
+        observerList.add(ObservableScrollView);
         bindScroolView(ObservableScrollView);
     }
 
@@ -46,7 +47,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ItemView
         itemViewHolder.tvLeftTitle.setText(datas.get(i).getLeftTitle());
         //右边滑动部分
         //设置多条recyclerview联动
-
+        observerList.add(itemViewHolder.ObservableScrollView);
         bindScroolView(itemViewHolder.ObservableScrollView);
     }
 
